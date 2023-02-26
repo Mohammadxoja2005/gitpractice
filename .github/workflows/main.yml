@@ -5,5 +5,9 @@ jobs:
   type-check: 
     runs-on: ubuntu-latest
     steps: 
-      - name: runs on ubuntu
-        run: echo hello world       
+      - name: code
+        uses: actions/checkout@v3
+      - name: install dependencies 
+        run: npm ci         
+      - name: test application 
+        run: npm run test
