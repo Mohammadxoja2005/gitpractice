@@ -13,7 +13,7 @@ jobs:
           path: dist
           name: build-files
   deploy: 
-      needs: build
+      needs: artifacts
       runs-on: ubuntu-latest
       steps: 
         - name: download artifacts
