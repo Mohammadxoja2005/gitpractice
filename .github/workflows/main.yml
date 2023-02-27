@@ -2,7 +2,7 @@ name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
-  cache_testing:
+  artifacts:
     runs-on: ubuntu-latest
     steps:
       - name: git repo code
@@ -12,3 +12,11 @@ jobs:
         with: 
           path: dist
           name: build-files
+  deploy: 
+      needs: build
+      runs-on: ubuntu-latest
+      steps: 
+        - name: download artifacts
+          uses: actions/download-artifacts@v3
+          with: 
+            name: build-files
