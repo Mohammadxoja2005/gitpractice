@@ -2,31 +2,8 @@ name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
-  test: 
+  testing_context:
     runs-on: ubuntu-latest
-    steps: 
-      - name: code
-        uses: actions/checkout@v3
-      - name: install dependencies 
-        run: npm ci         
-      - name: test application 
-        run: npm run test  
-  nodemodules: 
-    runs-on: ubuntu-latest
-    steps: 
-      - name: code checkout 
-        uses: actions/checkout@v3 
-      - name: nodemodules 
-        run: npm ci  
-      - name: run lint 
-        run: npm ci  
-  deploy:
-    runs-on: ubuntu-latest
-    needs: nodemodules 
-    steps: 
-      - name: code checkout 
-        uses: actions/checkout@v3 
-      - name: nodemodules 
-        run: npm ci  
-      - name: build 
-        run: npm run build  
+    steps:
+      - name: print github object
+        run: echo ${{ toJSON(github) }}
