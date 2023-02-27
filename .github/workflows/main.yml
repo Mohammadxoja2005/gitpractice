@@ -8,7 +8,7 @@ jobs:
       - name: git repo code
         uses: actions/checkout@v3
       - name: upload artefacts 
-        uses: actions/upload-articat@v3
+        uses: actions/upload-artifact@v3
         with: 
           path: build
           name: build-files
