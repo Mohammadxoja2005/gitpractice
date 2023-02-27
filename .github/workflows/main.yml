@@ -2,8 +2,13 @@ name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
-  testing_context:
+  cache_testing:
     runs-on: ubuntu-latest
     steps:
+      - name: cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: node-modules-${{ hashFiles('**/package-lock.json') }}
       - name: run nodemodules
         run: npm ci
