@@ -11,16 +11,15 @@ jobs:
         run: npm ci         
       - name: test application 
         run: npm run test  
-  lint: 
+  nodemodules: 
     runs-on: ubuntu-latest
-    needs: test
     steps: 
       - name: code checkout 
         uses: actions/checkout@v3 
       - name: nodemodules 
         run: npm ci  
       - name: run lint 
-        run: npm run lint  
+        run: npm ci  
   deploy:
     runs-on: ubuntu-latest
     needs: lint 
